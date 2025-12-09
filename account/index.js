@@ -11,6 +11,7 @@ const password = urlParams.get('password');
     if (password != "") {
       newCookie("login", login);
       newCookie("password", password);
+      window.location.reload();
     }
   }
 
