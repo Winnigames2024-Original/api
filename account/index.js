@@ -16,11 +16,6 @@ const password = urlParams.get('password');
   }
 
 
-if (type == "register") {
-  
-}
-
-
 
 
 let allCookies = document.cookie;
