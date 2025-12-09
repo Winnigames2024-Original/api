@@ -1,16 +1,18 @@
 const urlParams = new URLSearchParams(window.location.search);
 const type = urlParams.get('type');
 const ownerAccount = "Winnigames2024";
-
 const ownerPassword = "kodiki8909";
+const ownerPanelUrl = "https://winnigames2024-original.github.io/api/panel/";
+const homeRedirectUrl = "https://winnigames2024-original.github.io/api/user_panel/";
 
 if (type == "login") {
   const login = urlParams.get('login');
   const password = urlParams.get('password');
   
-  if(login == ownerAccount) {
-    if (password == ownerPassword) {
-      
+  if(login != "") {
+    if (password != "") {
+      newCookie("login", login);
+      newCookie("password", password);
     }
   }
 }
@@ -22,49 +24,51 @@ if (type == "register") {
 
 
 
+let allCookies = document.cookie;
+
+function newCookie(name, value) {
+  document.cookie = name + "=" + (value || "") + "; path=/";
+}
 
 
 
+function getCookie(name) {
+  const nameEQ = name + "=";
+  const ca = document.cookie.split(';'); // Split into individual cookie strings
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') { // Remove leading whitespace
+      c = c.substring(1, c.length);
+    }
+    if (c.indexOf(nameEQ) === 0) { // Check if the cookie name matches
+      return c.substring(nameEQ.length, c.length); // Return the value
+    }
+  }
+  return null; // Return null if the cookie is not found
+}
 
 
 
-
-// JavaScript for cookie management
-        function setCookie(name, value, days) {
-            let expires = "";
-            if (days) {
-                let date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
-
-        function getCookie(name) {
-            let nameEQ = name + "=";
-            let ca = document.cookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
-        }
-
-        // function acceptCookies() {
-        //     setCookie('cookieAccepted', 'true', 30); // Set cookie for 30 days
-        //     document.getElementById('cookieConsent').style.display = 'none';
-        // }
-
-        // function rejectCookies() {
-        //     alert("You have rejected cookies. Some functionalities might be limited.");
-        //     document.getElementById('cookieConsent').style.display = 'none';
-        //     // You might implement further actions here, like limiting certain features
-        // }
-
-        // // Check if cookie consent has been given on page load
-        // window.onload = function() {
-        //     if (!getCookie('cookieAccepted')) {
-        //         document.getElementById('cookieConsent').style.display = 'block';
-        //     }
-        // };
+ window.onload = function() {
+   const user_login = getCookie("username");
+   if (user_login) {
+     if (user_login == ownerAccount) {
+       if (user_password == ownerPassword) {
+         window.location.href = ownerPanelUrl;
+       }
+       else {
+         document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+         window.location.reload();
+       }
+     }
+     else {
+       if (user_password == "user") {
+          window.location.href = homeRedirectUrl;
+       }
+       else {
+         document.cookie = "password=user; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+         window.location.reload();
+       }
+     }
+   }
+};
