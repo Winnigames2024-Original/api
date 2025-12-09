@@ -48,18 +48,12 @@ function getCookie(name) {
    if (user_login) {
      if (user_login == ownerAccount) {
        if (user_password == ownerPassword) {
-         window.location.href = ownerPanelUrl;
-       }
-       else {
-         document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+         window.location.href = "https://winnigames2024-original.github.io/api/panel/";
        }
      }
      else {
        if (user_password == "user") {
-          window.location.href = homeRedirectUrl;
-       }
-       else {
-         document.cookie = "password=user; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+          window.location.href = "https://winnigames2024-original.github.io/api/user_panel/;
        }
      }
    }
