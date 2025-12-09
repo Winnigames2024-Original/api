@@ -22,7 +22,10 @@ if (type == "cookieDialog") {
     console.log(type);
     console.log(fileName);
   }
-  // JavaScript for cookie management
+}
+
+
+// JavaScript for cookie management
         function setCookie(name, value, days) {
             let expires = "";
             if (days) {
@@ -61,4 +64,3 @@ if (type == "cookieDialog") {
                 document.getElementById('cookieConsent').style.display = 'block';
             }
         };
-}
