@@ -43,7 +43,8 @@ function getCookie(name) {
 
 
  window.onload = function() {
-   const user_login = getCookie("username");
+   const user_login = getCookie("login");
+   const user_password = getCookie("password");
    if (user_login) {
      if (user_login == ownerAccount) {
        if (user_password == ownerPassword) {
