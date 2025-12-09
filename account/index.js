@@ -1,13 +1,11 @@
 const urlParams = new URLSearchParams(window.location.search);
-const type = urlParams.get('type');
 const ownerAccount = "Winnigames2024";
 const ownerPassword = "kodiki8909";
 const ownerPanelUrl = "https://winnigames2024-original.github.io/api/panel/";
 const homeRedirectUrl = "https://winnigames2024-original.github.io/api/user_panel/";
 
-if (type == "login") {
-  const login = urlParams.get('login');
-  const password = urlParams.get('password');
+const login = urlParams.get('login');
+const password = urlParams.get('password');
   
   if(login != "") {
     if (password != "") {
@@ -15,7 +13,7 @@ if (type == "login") {
       newCookie("password", password);
     }
   }
-}
+
 
 if (type == "register") {
   
