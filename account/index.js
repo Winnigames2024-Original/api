@@ -63,7 +63,7 @@ function getCookie(name) {
      }
      else {
        if (user_password == "user") {
-          window.location.href = "https://winnigames2024-original.github.io/api/user_panel/;
+          window.location.href = "https://winnigames2024-original.github.io/api/user_panel/";
        }
      }
    }
