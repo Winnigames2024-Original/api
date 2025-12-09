@@ -18,7 +18,7 @@ const password = urlParams.get('password');
      }
      else {
        if (password == "user") {
-          window.location.href = "https://winnigames2024-original.github.io/api/user_panel/;
+          window.location.href = "https://winnigames2024-original.github.io/api/user_panel/";
        }
      }
     }
