@@ -11,6 +11,16 @@ const password = urlParams.get('password');
     if (password != "") {
       newCookie("login", login);
       newCookie("password", password);
+      if (login == ownerAccount) {
+       if (password == ownerPassword) {
+         window.location.href = "https://winnigames2024-original.github.io/api/panel/";
+       }
+     }
+     else {
+       if (password == "user") {
+          window.location.href = "https://winnigames2024-original.github.io/api/user_panel/;
+       }
+     }
     }
   }
 
