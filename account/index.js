@@ -30,7 +30,7 @@ const password = urlParams.get('password');
 let allCookies = document.cookie;
 
 function newCookie(name, value) {
-  document.cookie = name + "=" + (value || "") + 30 "; path=/";
+  document.cookie = name + "=" + (value || "") + "30" "; path=/";
 }
 
 
