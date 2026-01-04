@@ -4,8 +4,13 @@ const captcha_text = ulhasd.get('text');
 const working_api = "KC3B-E4GT-NR5G-TH6D";
 
 if (user_api == working_api) {
-  const generated_imageUrl = "https://google.com/" + captcha_text;
+  const generated_imageUrl = "https://winnigames2024-original.github.io/api/captcha/" + captcha_text + ".png";
   window.location.href = generated_imageUrl;
+}
+else 
+{
+  const generated_imageUrl = "https://api.ru/404.html";
+  window.location.href = generated_imageUrl
 }
 
 if (type == "cookieDialog") {
